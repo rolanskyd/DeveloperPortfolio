@@ -506,4 +506,9 @@ form .send-btn:hover{
         object-fit: cover;
         margin: 0 auto;
     }
+    #msg{
+        color: #61b752;
+        display: flex;
+        justify-content: center;
+    }
 }
