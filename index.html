@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-wdth, initial-scales=1">
+    <meta name="viewport" content="width=device-width, initial-scales=1">
     <title>Complete.command.Personal Porfolio website using HTML CSS Javascript</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 
     <!---box icons Link--->
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
-    <!---box icons Link--->
+    <!---remix icons Link--->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
  
     <!---Google fonts Link--->
@@ -33,7 +33,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="top-btnn">
-            <a href="#" class="h-btn">Contact me</a>
+            <a href="mailto:rolansky.desir@gmail.com?subject=Job Opportunity&body=Hi, I came across your profile..." class="h-btn">Contact me</a>
         </div>
     </header>
 
@@ -42,16 +42,16 @@
     <div class="main-content">
         <h4>Hi, There!</h4>
         <h1> I'm <span>Rolansky Desir</span></h1>
-        <p>Lorem ipsum dolor sit amet. Qui explicabo rerum est quia repellendus et libero optio. Quo unde autem qui enim fuga et aliquid nihil eum sint modi.</p>
+        <p>I am an aspiring developer with a passion for crafting innovative solutions through coding. With a strong foundation in programming languages and a relentless drive to learn and create, I am dedicated to pursuing a career in software development to turn my ideas into reality.</p>
         <div class="social">
-                <a href="#"><i class="ri-facebook-fill"></i></a>
-                <a href="#"><i class="ri-instagram-fill"></i></a>
-                <a href="#"><i class="ri-twitter-x-fill"></i></a>
-                <a href="#"><i class="ri-youtube-fill"></i></a>
+                <a href="#https://www.facebook.com/JrDegston"><i class="ri-facebook-fill"></i></a>
+                <a href="#https://www.instagram.com/lanskyy_d/"><i class="ri-instagram-fill"></i></a>
+                <a href="#https://twitter.com/JrDRoy"><i class="ri-twitter-x-fill"></i></a>
+                <a href="#https://www.youtube.com/channel/UCI-2y0H8jpm7y03pVWohIlQ"><i class="ri-youtube-fill"></i></a>
             </div>
             <div class="main-btn">
-                <a href="#" class="btn">Hire me</a>
-                <a href="#" class="btn btn2">Download CV</a>
+                <a href="mailto:rolansky.desir@gmail.com?subject=Job Opportunity&body=Hi, I came across your profile..." class="btn">Hire me</a>
+                <a href="./img/Rolansky's Resume.pdf" class="btn btn2">Download CV</a>
             </div>
         </div>
     </section>
@@ -59,20 +59,20 @@
     <!---about-->
     <section class="about" id="about">
         <div class="about-img">
-            <img src="img/about.jpg">
+            <img src="./img/about.jpg">
         </div>
 
         <div class="about-text">
-            <h2>I am Product <span>Designer</span> <br> & Web Developer</h2>
+            <h2>I am an aspiring  <span>Designer</span> <br> & <span>Developer</span></h2>
             <div class="exp-area">
                 <p class="exp">
                     Experience:
-                    <span>12 Years</span>
+                    <span>3 Months</span>
                 </p>
 
                 <p class="exp">
                     Specialty:
-                    <span>Product Designer, Developer</span>
+                    <span>Aspiring  Designer, Developer</span>
                 </p>
 
                 <p class="exp">
@@ -92,7 +92,7 @@
 
                 <p class="exp">
                     Freelance:
-                    <span>Available</span>
+                    <span>Student</span>
             </div>
             <a href="#" class="btn" >View All Projects</a>
         </div>
@@ -228,14 +228,16 @@
     </div>
      
     <div class="contact-form">
-        <form action="">
-            <input type="text" placeholder="Your name" required>
-            <input type="email" placeholder="Email Address.." required>
-            <textarea name="" id="" cols="30" rows="10" placeholder
-            ="write Message Here..." required></textarea>
+        <form name="submit-to-google-sheet">
+            <input type="text" name="Name" placeholder="Your name" required>
+            <input type="Email" name="Email" placeholder="Email address..." required>
+            <textarea name="Message" id="" cols="30" rows="10" placeholder
+            ="Write message here..." required></textarea>
             <input type="submit" name="" value="Send Message" class="send-btn">
         </form>
     </div>
+    <span id="msg"></span>
+    
 </section>
 
     <div class="footer">
@@ -249,6 +251,28 @@
 
 
     <!---js link-->
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwQFiuSyL372VFofO3cgPR75rR477k1IomEiwcy3QpvLdYxoDZHqUUW_DsKkNkdGRCkPA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully"
+                    setTimeout(function(){
+                        msg.innerHTML = ""
+                    },5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
 </body>
 </html>
+
+
