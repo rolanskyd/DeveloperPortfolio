@@ -1,4 +1,4 @@
- *{
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -87,7 +87,7 @@ section{
 .hero{
     height: 100vh;
     width: 100%;
-    background: url(img/background1.png);
+    background: url(img/background.png);
     background-position: top right;
     background-size: cover;
     display: flex;
@@ -388,41 +388,46 @@ form .send-btn:hover{
     color: var(--text-color);
     font-size: 27px;
 }
+
+/* responsive on media */
+
 @media (max-width: 1700px){
     header{
         padding: 20px 8%;
     }
-    Header.sticky{
+    header.sticky{
         padding: 14px 8%;
     }
     section{
         padding: 90px 8% 80px;
     }
     .footer{
-        padding: 18px 8%''
+        padding: 18px 8%;
     }
     .logo{
         font-size: 28px;
     }
 }
-@media (max-width: 1300px){
+
+@media (max-width: 1380px){
     header{
         padding: 20px 5%;
     }
-    Header.sticky{
+    header.sticky{
         padding: 14px 5%;
     }
     section{
         padding: 90px 5% 80px;
     }
     .footer{
-        padding: 18px 5%''
+        padding: 18px 5%;
     }
     .hero{
         height: 90vh;
         background-position: center;
     }
 }
+
 @media (max-width: 1290px){
     .box{
         padding: 40px 40px 46px;
@@ -436,6 +441,7 @@ form .send-btn:hover{
         font-size: 21px;
     }
 }
+
 @media (max-width: 1240px){
     .about{
         grid-template-columns: 1fr;
@@ -457,10 +463,11 @@ form .send-btn:hover{
         --p-font: 15px;
     }
 }
+
 @media (max-width: 950px){
     :root{
-        --h1-font:3.5rem;
-    }
+        --h1-font: 3.5rem;
+}
     .social{
         margin-bottom: 20px;
     }
@@ -470,7 +477,7 @@ form .send-btn:hover{
     .navlist{
         position: absolute;
         top: 100%;
-        right: 0;
+        right: -100%;
         width: 255px;
         min-height: 100vh;
         display: flex;
@@ -487,28 +494,34 @@ form .send-btn:hover{
         right: 0;
     }
 }
+
 @media (max-width: 680px){
     .main-content p{
         width: 100%;
     }
 }
+
 @media (max-width: 470px){
     :root{
         --h1-font: 3rem;
-        --h2-font:2rem;
+        --h2-font: 2rem;
     }
     .about-img img{
         text-align: center;
         width: 100%;
         height: 300px;
         max-width: 300px;
-        border-radius: 50px;
+        border-radius: 50%;
         object-fit: cover;
         margin: 0 auto;
     }
-    #msg{
-        color: #61b752;
-        display: flex;
-        justify-content: center;
-    }
+    form .send-btn{
+        padding: 11px 9px;
+        font-size: 12px;
+}
+#msg{
+    color: #61b752;
+    display: flex;
+    justify-content: center;
+}
 }
